@@ -1,0 +1,14 @@
+server {
+    listen 80;
+    server_name faithbridge.multilingualai.com www.faithbridge.multilingualai.com;
+
+    location /.well-known/acme-challenge/ {
+        root /var/www/certbot;
+        try_files $uri $uri/ =404;
+        allow all;
+    }
+
+    location / {
+        return 301 https://$host$request_uri;
+    }
+}

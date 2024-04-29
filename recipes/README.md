@@ -1,4 +1,4 @@
-# Recipes for Assistant.Bible
+# Recipes for  faithbridge.multilingualai
 
 This directory contains various combinations of tech-stacks that can be used in this app and how to use them. It also provides sample data for running the given examples.
 
