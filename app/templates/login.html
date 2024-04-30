@@ -1,286 +1,231 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Assistant.Bible</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.15/dist/tailwind.min.css"
-      rel="stylesheet"
-    />
-  </head>
-  <head>
-    <meta charset="UTF-8" />
-    <title>assistant.bible: A Bible Assistant</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.15/dist/tailwind.min.css"
-      rel="stylesheet"
-    />
-    <style>
+
+<head>
+  <title>faithbridge.multilingualai</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.15/dist/tailwind.min.css" rel="stylesheet" />
+</head>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>faithbridge.multilingualai: A Bible Assistant</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.15/dist/tailwind.min.css" rel="stylesheet" />
+  <style>
+    h1 {
+      font-size: 4em;
+      background: linear-gradient(45deg, #0cdd2b, #64b5f6, #ffc107);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    @media (max-width: 768px) {
       h1 {
-        font-size: 4em;
-        background: linear-gradient(45deg, #0cdd2b, #64b5f6, #ffc107);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+        font-size: 2em;
       }
-      @media (max-width: 768px) {
-        h1 {
-          font-size: 2em;
-        }
-      }
-      @media (max-width: 1400px) {
-        h1 {
-          font-size: 2em;
-        }
-      }
-    </style>
-  </head>
+    }
 
-  <body class="bg-gray-100">
-    <div class="container mx-auto p-4">
-      <div class="flex flex-col md:flex-row justify-center">
-        <div class="bg-white p-8 rounded-lg shadow-md w-full md:w-1/2 sm:2/3">
-          <div class="text-center">
-            <header class="px-2 text-white">
-              <div
-                class="container bg-white p-8 text-black transition duration-300 ease-in-out max-w-xl"
-              >
-                <a class="flex flex-col mb-4" href="https://assistant.bible">
-                  <h1 class="font-bold">
-                    assistant.bible
+    @media (max-width: 1400px) {
+      h1 {
+        font-size: 2em;
+      }
+    }
+  </style>
+</head>
 
-                    <span
-                      class="self-start max-w-min max-h-min font-bold text-sm p-1 text-white rounded"
-                    >
-                      &lt;beta&gt;
-                    </span>
-                  </h1>
-                </a>
-                <p class="text-lg mb-2">
-                  An intelligent search engine for domain-specific Bible data.
-                </p>
-              </div>
-            </header>
-            <h2 id="form-title" class="text-2xl font-semibold text-gray-700">
-              Account Login
-            </h2>
-          </div>
-          <div class="mt-4">
-            <form id="loginForm">
-              <div class="mb-4">
-                <label
-                  for="loginEmail"
-                  class="block text-sm font-medium text-gray-600"
-                  >Email</label
-                >
-                <input
-                  type="email"
-                  id="loginEmail"
-                  name="loginEmail"
-                  required
-                  class="mt-1 p-2 w-full rounded-md border"
-                />
-              </div>
-              <div class="mb-4">
-                <label
-                  for="loginPassword"
-                  class="block text-sm font-medium text-gray-600"
-                  >Password</label
-                >
-                <input
-                  type="password"
-                  id="loginPassword"
-                  name="loginPassword"
-                  required
-                  class="mt-1 p-2 w-full rounded-md border"
-                />
-              </div>
-              <div class="mb-4">
-                <button
-                  type="submit"
-                  class="btn btn-primary bg-blue-500 text-white p-2 rounded"
-                >
-                  Log In
-                </button>
-              </div>
-              <div class="text-sm">
-                <label class="form-remember hidden">
-                  <input type="checkbox" class="mr-1" />Remember Me
-                </label>
-                <p class="form-remember">
-                  Don't have an account?
-                  <a id="signUpLink" href="#" class="text-blue-500">Sign Up</a>
-                </p>
-                <a class="form-recovery text-blue-500" href="#"
-                  >Forgot Password?</a
-                >
-              </div>
-            </form>
-            <form id="signupForm" class="hidden">
-              <div class="mb-4">
-                <label
-                  for="signupEmail"
-                  class="block text-sm font-medium text-gray-600"
-                  >Email</label
-                >
-                <input
-                  type="email"
-                  id="signupEmail"
-                  name="signupEmail"
-                  required
-                  class="mt-1 p-2 w-full rounded-md border"
-                />
-              </div>
-              <div class="mb-4">
-                <label
-                  for="signupPassword"
-                  class="block text-sm font-medium text-gray-600"
-                  >Password</label
-                >
-                <input
-                  type="password"
-                  id="signupPassword"
-                  name="signupPassword"
-                  required
-                  class="mt-1 p-2 w-full rounded-md border"
-                />
-              </div>
-              <div class="mb-4">
-                <button
-                id="signup-button"
-                  type="submit"
-                  class="btn btn-primary bg-blue-500 text-white p-2 rounded"
-                >
-                  Sign Up
-                </button>
-              </div>
-              <div class="text-sm">
-                <p class="form-remember">
-                  Already have an account?
-                  <a id="signInLink" href="#" class="text-blue-500">Sign in</a>
-                </p>
-              </div>
-            </form>
-            <div
-              id="error-message"
-              class="alert alert-danger mt-3 hidden text-red-500"
-            ></div>
-            <div
-              id="info-message"
-              class="bg-blue-100 border-t-2 border-blue-500 rounded-b text-blue-900 px-4 py-3 mt-3 hidden"
-              ></div>
-          </div>
+<body class="bg-gray-100">
+  <div class="container mx-auto p-4">
+    <div class="flex flex-col md:flex-row justify-center">
+      <div class="bg-white p-8 rounded-lg shadow-md w-full md:w-1/2 sm:2/3">
+        <div class="text-center">
+          <header class="px-2 text-white">
+            <div class="container bg-white p-8 text-black transition duration-300 ease-in-out max-w-xl">
+              <a class="flex flex-col mb-4" href="https://faithbridge.multilingualai">
+                <h1 class="font-bold">
+                  faithbridge.multilingualai
+
+                  <span class="self-start max-w-min max-h-min font-bold text-sm p-1 text-white rounded">
+                    &lt;beta&gt;
+                  </span>
+                </h1>
+              </a>
+              <p class="text-lg mb-2">
+                An intelligent search engine for domain-specific Bible data.
+              </p>
+            </div>
+          </header>
+          <h2 id="form-title" class="text-2xl font-semibold text-gray-700">
+            Account Login
+          </h2>
+        </div>
+        <div class="mt-4">
+          <form id="loginForm">
+            <div class="mb-4">
+              <label for="loginEmail" class="block text-sm font-medium text-gray-600">Email</label>
+              <input type="email" id="loginEmail" name="loginEmail" required
+                class="mt-1 p-2 w-full rounded-md border" />
+            </div>
+            <div class="mb-4">
+              <label for="loginPassword" class="block text-sm font-medium text-gray-600">Password</label>
+              <input type="password" id="loginPassword" name="loginPassword" required
+                class="mt-1 p-2 w-full rounded-md border" />
+            </div>
+            <div class="mb-4">
+              <button type="submit" class="btn btn-primary bg-blue-500 text-white p-2 rounded">
+                Log In
+              </button>
+            </div>
+            <div class="text-sm">
+              <label class="form-remember hidden">
+                <input type="checkbox" class="mr-1" />Remember Me
+              </label>
+              <p class="form-remember">
+                Don't have an account?
+                <a id="signUpLink" href="#" class="text-blue-500">Sign Up</a>
+              </p>
+              <a class="form-recovery text-blue-500" href="#">Forgot Password?</a>
+            </div>
+          </form>
+          <form id="signupForm" class="hidden">
+            <div class="mb-4">
+              <label for="signupEmail" class="block text-sm font-medium text-gray-600">Email</label>
+              <input type="email" id="signupEmail" name="signupEmail" required
+                class="mt-1 p-2 w-full rounded-md border" />
+            </div>
+            <div class="mb-4">
+              <label for="signupPassword" class="block text-sm font-medium text-gray-600">Password</label>
+              <input type="password" id="signupPassword" name="signupPassword" required
+                class="mt-1 p-2 w-full rounded-md border" />
+            </div>
+            <div class="mb-4">
+              <button id="signup-button" type="submit" class="btn btn-primary bg-blue-500 text-white p-2 rounded">
+                Sign Up
+              </button>
+            </div>
+            <div class="text-sm">
+              <p class="form-remember">
+                Already have an account?
+                <a id="signInLink" href="#" class="text-blue-500">Sign in</a>
+              </p>
+            </div>
+          </form>
+          <div id="error-message" class="alert alert-danger mt-3 hidden text-red-500"></div>
+          <div id="info-message"
+            class="bg-blue-100 border-t-2 border-blue-500 rounded-b text-blue-900 px-4 py-3 mt-3 hidden"></div>
         </div>
       </div>
     </div>
-    <script>
-      // JavaScript to toggle between Sign In and Sign Up forms
-      document
-        .getElementById('signInLink')
-        .addEventListener('click', function () {
-          var signInForm = document.getElementById('loginForm');
-          var signUpForm = document.getElementById('signupForm');
-          var formTitle = document.getElementById('form-title');
-          signInForm.style.display = 'block';
-          signUpForm.style.display = 'none';
-          formTitle.textContent = 'Account Login';
-        });
-      document
-        .getElementById('signUpLink')
-        .addEventListener('click', function () {
-          var signInForm = document.getElementById('loginForm');
-          var signUpForm = document.getElementById('signupForm');
-          var formTitle = document.getElementById('form-title');
+  </div>
+  <script>
+    // JavaScript to toggle between Sign In and Sign Up forms
+    document
+      .getElementById('signInLink')
+      .addEventListener('click', function () {
+        var signInForm = document.getElementById('loginForm');
+        var signUpForm = document.getElementById('signupForm');
+        var formTitle = document.getElementById('form-title');
+        signInForm.style.display = 'block';
+        signUpForm.style.display = 'none';
+        formTitle.textContent = 'Account Login';
+      });
+    document
+      .getElementById('signUpLink')
+      .addEventListener('click', function () {
+        var signInForm = document.getElementById('loginForm');
+        var signUpForm = document.getElementById('signupForm');
+        var formTitle = document.getElementById('form-title');
 
-          signInForm.style.display = 'none';
-          signUpForm.style.display = 'block';
-          formTitle.textContent = 'Create an Account';
-        });
-    </script>
+        signInForm.style.display = 'none';
+        signUpForm.style.display = 'block';
+        formTitle.textContent = 'Create an Account';
+      });
+  </script>
 
-    <script>
-      // Add the event listener to handle form submission
-      document
-        .getElementById('loginForm')
-        .addEventListener('submit', async function (event) {
-          event.preventDefault();
+  <script>
+    // Add the event listener to handle form submission
+    document
+      .getElementById('loginForm')
+      .addEventListener('submit', async function (event) {
+        event.preventDefault();
 
-          const form = event.target;
-          const formData = new FormData(form);
+        const form = event.target;
+        const formData = new FormData(form);
 
-          const email = formData.get('loginEmail');
-          const password = formData.get('loginPassword');
+        const email = formData.get('loginEmail');
+        const password = formData.get('loginPassword');
 
-          try {
-            const response = await fetch('/login', {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-              },
-              body: new URLSearchParams({ email, password }),
-            });
+        try {
+          const response = await fetch('/login', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: new URLSearchParams({ email, password }),
+          });
 
-            if (response.ok) {
-              const data = await response.json();
-              const access_token = data.access_token;
+          if (response.ok) {
+            const data = await response.json();
+            const access_token = data.access_token;
 
-              // Save the access token to sessionStorage
-              sessionStorage.setItem('accessToken', access_token);
-              // Redirect the user to the chat page
-              window.location.href = '/app';
+            // Save the access token to sessionStorage
+            sessionStorage.setItem('accessToken', access_token);
+            // Redirect the user to the chat page
+            window.location.href = '/app';
+          } else {
+            const data = await response.json();
+            const errorDiv = document.getElementById('error-message');
+            if (data.error === 'Permission Denied') {
+              errorDiv.textContent =
+                'Unauthorized access. Please check your credentials and try again.';
             } else {
-              const data = await response.json();
-              const errorDiv = document.getElementById('error-message');
-              if (data.error === 'Permission Denied') {
-                errorDiv.textContent =
-                  'Unauthorized access. Please check your credentials and try again.';
-              } else {
-                errorDiv.textContent = data.detail;
-              }
-              errorDiv.style.display = 'block';
+              errorDiv.textContent = data.detail;
             }
-          } catch (error) {
-            console.error('Error:', error);
+            errorDiv.style.display = 'block';
           }
-        });
+        } catch (error) {
+          console.error('Error:', error);
+        }
+      });
 
-      document
-        .getElementById('signupForm')
-        .addEventListener('submit', async function (event) {
-          event.preventDefault();
+    document
+      .getElementById('signupForm')
+      .addEventListener('submit', async function (event) {
+        event.preventDefault();
 
-          const form = event.target;
-          const formData = new FormData(form);
+        const form = event.target;
+        const formData = new FormData(form);
 
-          const email = formData.get('signupEmail');
-          const password = formData.get('signupPassword');
+        const email = formData.get('signupEmail');
+        const password = formData.get('signupPassword');
 
-          try {
-            const response = await fetch('/signup', {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-              },
-              body: new URLSearchParams({ email, password }),
-            });
+        try {
+          const response = await fetch('/signup', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: new URLSearchParams({ email, password }),
+          });
 
-            if (response.ok) {
-              const data = await response.json();
-              const message = data.message
-              const infoDiv = document.getElementById('info-message');
-              const signUpButton = document.getElementById("signup-button");
-              signUpButton.style.display = "none";
-              infoDiv.textContent = message;
-              infoDiv.style.display = 'block';
-            } else {
-                console.log(response)
-              const errorMessage = 'Sign up failed. Please try again.';
-              const errorDiv = document.getElementById('error-message');
-              errorDiv.textContent = errorMessage;
-              errorDiv.style.display = 'block';
-            }
-          } catch (error) {
-            console.error('Error:', error);
+          if (response.ok) {
+            const data = await response.json();
+            const message = data.message
+            const infoDiv = document.getElementById('info-message');
+            const signUpButton = document.getElementById("signup-button");
+            signUpButton.style.display = "none";
+            infoDiv.textContent = message;
+            infoDiv.style.display = 'block';
+          } else {
+            console.log(response)
+            const errorMessage = 'Sign up failed. Please try again.';
+            const errorDiv = document.getElementById('error-message');
+            errorDiv.textContent = errorMessage;
+            errorDiv.style.display = 'block';
           }
-        });
-    </script>
-  </body>
+        } catch (error) {
+          console.error('Error:', error);
+        }
+      });
+  </script>
+</body>
+
 </html>

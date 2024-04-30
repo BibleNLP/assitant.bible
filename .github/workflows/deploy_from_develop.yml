@@ -16,13 +16,13 @@ jobs:
     - name: Execute Commands on Remote Server
       uses: appleboy/ssh-action@master
       with:
-        host: dev.assistant.bible
+        host: dev.faithbridge.multilingualai
         username: root
         key: ${{ secrets.DEV_SIL_SSH_KEY }}
         port: 22
         script_stop: true
         script: |
-          cd /home/assistant-bible/assistant.bible
+          cd /home/assistant-bible/faithbridge.multilingualai
           git pull origin develop
           su - assistant-bible
           cd deployment

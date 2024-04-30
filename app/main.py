@@ -12,10 +12,10 @@ from log_configs import log
 import routers
 
 app = FastAPI(
-    title="Assistant.Bible  APIs",
+    title="faithbridge.multilingualai  APIs",
     version="0.0.1-alpha.1",
     description="The server application that provides APIs to interact \
-with the Assistant.Bible Chatbot App",
+with the faithbridge.multilingualai Chatbot App",
 )
 
 app.add_middleware(

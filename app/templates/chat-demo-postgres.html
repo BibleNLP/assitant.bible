@@ -1,86 +1,58 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <title>assistant.bible: A Bible Assistant</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.15/dist/tailwind.min.css"
-      rel="stylesheet"
-    />
-    <style>
-      h1 {
-        font-size: 4em;
-        background: linear-gradient(45deg, #0cdd2b, #64b5f6, #ffc107);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-      }
-    </style>
-  </head>
-  <body class="bg-white flex flex-col min-h-screen">
-    <body class="flex items-center justify-center h-screen px-2 text-white">
-      
-      <main class="container mx-auto p-4 flex-grow">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>faithbridge.multilingualai: A Bible Assistant</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.15/dist/tailwind.min.css" rel="stylesheet" />
+  <style>
+    h1 {
+      font-size: 4em;
+      background: linear-gradient(45deg, #0cdd2b, #64b5f6, #ffc107);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  </style>
+</head>
+
+<body class="bg-white flex flex-col min-h-screen">
+
+  <body class="flex items-center justify-center h-screen px-2 text-white">
+
+    <main class="container mx-auto p-4 flex-grow">
       <header class="w-full text-black">
-        <div
-          class="container text-black transition duration-300 ease-in-out max-w-xl"
-        >
-          <a href="https://assistant.bible">
-            <h1 class="font-bold mb-4">assistant.bible</h1></a
-          >
+        <div class="container text-black transition duration-300 ease-in-out max-w-xl">
+          <a href="https://faithbridge.multilingualai">
+            <h1 class="font-bold mb-4">faithbridge.multilingualai</h1>
+          </a>
           <p class="text-lg mb-2">
             An intelligent search engine for domain-specific Bible data.
           </p>
         </div>
       </header>
-      <link 
-        rel="stylesheet" 
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" 
-        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" 
-        crossorigin="anonymous" 
-        referrerpolicy="no-referrer" 
-      />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
       <div class="flex flex-col md:flex-row justify-between items-center">
         <div class="w-full md:w-auto">
           <p class="font-bold">Search Domain:</p>
           <div class="flex items-center">
-            <input
-              type="checkbox"
-              id="tyndale-open"
-              name="tyndale-open"
-              value="tyndale_open"
-              onchange="changeLabel(this)"
-              checked
-            />
-            <label for="tyndale-open" class="ml-2"
-              >Tyndale Open Resources</label
-            >
+            <input type="checkbox" id="tyndale-open" name="tyndale-open" value="tyndale_open"
+              onchange="changeLabel(this)" checked />
+            <label for="tyndale-open" class="ml-2">Tyndale Open Resources</label>
           </div>
           <div class="flex items-center">
-            <input
-              type="checkbox"
-              id="faith-and-farming"
-              name="faith-and-farming"
-              value="faith_and_farming"
-              onchange="changeLabel(this)"
-            />
-            <label for="faith-and-farming" class="ml-2"
-              >Faith and Farming (generic workshop advice, but farming advice only applicable to Nigeria)</label
-            >
+            <input type="checkbox" id="faith-and-farming" name="faith-and-farming" value="faith_and_farming"
+              onchange="changeLabel(this)" />
+            <label for="faith-and-farming" class="ml-2">Faith and Farming (generic workshop advice, but farming advice
+              only applicable to Nigeria)</label>
           </div>
         </div>
         <div class="w-full md:w-auto mt-4 md:mt-0">
-          <a
-            href="/login"
-            class="bg-blue-500 text-white px-4 py-2 rounded hidden"
-            id="login"
-          >
+          <a href="/login" class="bg-blue-500 text-white px-4 py-2 rounded hidden" id="login">
             Log In
           </a>
-          <button
-            type="submit"
-            class="bg-blue-500 text-white px-4 py-2 rounded hidden ml-2"
-            id="logout"
-          >
+          <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hidden ml-2" id="logout">
             Log Out
           </button>
         </div>
@@ -89,26 +61,17 @@
         <div class="bg-gray-200 p-4 rounded" id="messages"></div>
         <div class="text-red-500 mt-2" id="errorDiv"></div>
         <form class="flex mt-4">
-          <input
-            type="text"
-            class="form-control flex-grow p-2 rounded-l border"
-            id="message"
-            name="message"
-            autofocus
-          />
-          <button
-            type="submit"
-            class="bg-blue-500 text-white px-4 py-2 rounded-r ml-3"
-            id="sendButton"
-          >
+          <input type="text" class="form-control flex-grow p-2 rounded-l border" id="message" name="message"
+            autofocus />
+          <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-r ml-3" id="sendButton">
             Send
           </button>
           <button class="bg-blue-500 text-white px-4 py-2 rounded ml-3" id="recordButton">
-              <i class="fas fa-circle fa-sm"></i> Record
+            <i class="fas fa-circle fa-sm"></i> Record
           </button>
         </form>
         <button class="bg-blue-500 text-white px-4 py-2 rounded mt-3" id="resetButton">
-            Reset Conversation
+          Reset Conversation
         </button>
       </div>
 
@@ -120,198 +83,199 @@
 
     </script>
     <script>
-        // Fetch Supabase keys when the page loads
-        const accessToken = sessionStorage.getItem('accessToken');
-        console.log("accessToken: " + accessToken)
-        if (accessToken === null) {
-            // The user is not logged in, so render the Log In button and disable the message input.
-            document.querySelector('#login').style.display = 'block';
-            document.querySelector('#message').disabled = true;
-            document.querySelector('#message').style.cursor = 'not-allowed';
-            document.querySelector('#sendButton').disabled = true;
-            document.querySelector('#recordButton').disabled = true;
-            document.querySelector('#resetButton').style.display = 'none';
-        } else {
-            // The user is logged in, so render the Log Out button and enable the message input.
-            document.querySelector('#logout').style.display = 'block';
-            document.querySelector('#message').disabled = false;
-            document.querySelector('#message').style.cursor = 'text';
-            document.querySelector('#sendButton').disabled = false;
-            document.querySelector('#recordButton').disabled = false;
-            document.querySelector('#resetButton').style.display = 'block';
-        }
+      // Fetch Supabase keys when the page loads
+      const accessToken = sessionStorage.getItem('accessToken');
+      console.log("accessToken: " + accessToken)
+      if (accessToken === null) {
+        // The user is not logged in, so render the Log In button and disable the message input.
+        document.querySelector('#login').style.display = 'block';
+        document.querySelector('#message').disabled = true;
+        document.querySelector('#message').style.cursor = 'not-allowed';
+        document.querySelector('#sendButton').disabled = true;
+        document.querySelector('#recordButton').disabled = true;
+        document.querySelector('#resetButton').style.display = 'none';
+      } else {
+        // The user is logged in, so render the Log Out button and enable the message input.
+        document.querySelector('#logout').style.display = 'block';
+        document.querySelector('#message').disabled = false;
+        document.querySelector('#message').style.cursor = 'text';
+        document.querySelector('#sendButton').disabled = false;
+        document.querySelector('#recordButton').disabled = false;
+        document.querySelector('#resetButton').style.display = 'block';
+      }
     </script>
     <script>
       let label = "tyndale_open"
       var endpoint = {{ ws_url| tojson }};
       endpoint += '?llmFrameworkType=openai-vanilla&vectordbType=postgres-with-pgvector&token=' + accessToken + '&labels=' + label;
-      function setupWebsocket(endpoint){
+      function setupWebsocket(endpoint) {
         console.log("endpoint: " + endpoint)
         var ws = new WebSocket(endpoint);
-        
+
         ws.onmessage = function (event) {
-            data = JSON.parse(event.data)
-            if(data.type == "error"){
+          data = JSON.parse(event.data)
+          if (data.type == "error") {
             alert(data.message);
-            } else {
-                if(data.logged_in == false) {
-            document.querySelector('#login').style.display = 'block';
-            document.querySelector('#logout').style.display = 'none';
-                }
+          } else {
+            if (data.logged_in == false) {
+              document.querySelector('#login').style.display = 'block';
+              document.querySelector('#logout').style.display = 'none';
+            }
             let sourcesButton = '';
-            if(data.sources.length > 0 && data.sources[0] !== 'no records found') {
-                sourcesButton = '&nbsp(<button class="btn btn-link text-blue-500" onclick="alert(\''+data.sources+'\');">sources</button>)';
+            if (data.sources.length > 0 && data.sources[0] !== 'no records found') {
+              sourcesButton = '&nbsp(<button class="btn btn-link text-blue-500" onclick="alert(\'' + data.sources + '\');">sources</button>)';
             }
-            $('#messages').append('<div class="font-bold">' + data.sender+':</div><div>'+data.message + sourcesButton + '</div>');
-            }
+            $('#messages').append('<div class="font-bold">' + data.sender + ':</div><div>' + data.message + sourcesButton + '</div>');
+          }
         };
         return ws
-        }   
-        ws = setupWebsocket(endpoint);
-        
-        $('form').submit(function(event) {
-            event.preventDefault();
-            if (event.originalEvent.submitter.id === 'sendButton') {
-                if (ws.readyState === WebSocket.OPEN || ws.readyState === WebSocket.CONNECTING) { // Check if WebSocket is open
-                    const jsonMessage = JSON.stringify({
-                        message: $('#message').val()
-                    });
-                    const encoder = new TextEncoder();
-                    const encodedText = encoder.encode(jsonMessage);
-                    console.log("encodedJson: " + encodedText)
-                    ws.send(encodedText);
-                    $('#messages').append('<div class="font-bold">You:</div><div>' + $('#message').val() + '</div>');
-                    $('#message').val('').focus();
-                    $('#errorDiv').empty();
-                } else {
-                    $('#errorDiv').text('Please sign in first, then ask your question.');
-                    console.log('WebSocket is not open');
-                }
-            }
-        });
+      }
+      ws = setupWebsocket(endpoint);
 
-        document.getElementById('resetButton').addEventListener("click", function(event) {
-            console.log("Resetting conversation");
-            var messagesDiv = document.getElementById("messages");
-            messagesDiv.innerHTML = "";
-            var messageInput = document.getElementById("message");
-            messageInput.focus();
+      $('form').submit(function (event) {
+        event.preventDefault();
+        if (event.originalEvent.submitter.id === 'sendButton') {
+          if (ws.readyState === WebSocket.OPEN || ws.readyState === WebSocket.CONNECTING) { // Check if WebSocket is open
             const jsonMessage = JSON.stringify({
-                type: 'reset'
-              });
-                const encoder = new TextEncoder();
-                const encodedJson = encoder.encode(jsonMessage);
-              ws.send(encodedJson);  // Emit a reset event to the server
+              message: $('#message').val()
             });
-
-        function changeLabel(src) {
-            let labels = [];
-            var endpoint = {{ ws_url| tojson }};
-            var tyndaleOpenElement = document.getElementById("tyndale-open");
-            var faithAndFarmingElement = document.getElementById("faith-and-farming");
-        endpoint += '?llmFrameworkType=openai-vanilla&vectordbType=postgres-with-pgvector&token=' + accessToken;
-        if (tyndaleOpenElement.checked == true) { 
-            endpoint += '&labels=' + tyndaleOpenElement.value;
-            $('#messages').append('<div>---<b>Domain:Tyndale-Open:' + tyndaleOpenElement.checked + '</b>---</div');
-         }
-        if (faithAndFarmingElement.checked == true) { 
-            endpoint += '&labels=' + faithAndFarmingElement.value;
-            $('#messages').append('<div>---<b>Domain:Faith-and-Farming:' + faithAndFarmingElement.checked + '</b>---</div');
-         }
-        ws.close();
-        console.log("endpoint: " + endpoint)
-
-        ws = setupWebsocket(endpoint);          }
-    </script>
-    <script>
-        document.getElementById('logout').addEventListener('click', async (event) => {
-            console.log("Logging out");
-            event.preventDefault();
-            try {
-                const response = await fetch('/logout', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                })
-            });
-            sessionStorage.removeItem('accessToken');
-            const data = await response.json();
-            next_url = data.next_url;
-            window.location.href = next_url;
-          } catch (error) {
-            console.error('Error:', error);
+            const encoder = new TextEncoder();
+            const encodedText = encoder.encode(jsonMessage);
+            console.log("encodedJson: " + encodedText)
+            ws.send(encodedText);
+            $('#messages').append('<div class="font-bold">You:</div><div>' + $('#message').val() + '</div>');
+            $('#message').val('').focus();
+            $('#errorDiv').empty();
+          } else {
+            $('#errorDiv').text('Please sign in first, then ask your question.');
+            console.log('WebSocket is not open');
           }
+        }
+      });
+
+      document.getElementById('resetButton').addEventListener("click", function (event) {
+        console.log("Resetting conversation");
+        var messagesDiv = document.getElementById("messages");
+        messagesDiv.innerHTML = "";
+        var messageInput = document.getElementById("message");
+        messageInput.focus();
+        const jsonMessage = JSON.stringify({
+          type: 'reset'
         });
+        const encoder = new TextEncoder();
+        const encodedJson = encoder.encode(jsonMessage);
+        ws.send(encodedJson);  // Emit a reset event to the server
+      });
+
+      function changeLabel(src) {
+        let labels = [];
+        var endpoint = {{ ws_url| tojson
+      }};
+      var tyndaleOpenElement = document.getElementById("tyndale-open");
+      var faithAndFarmingElement = document.getElementById("faith-and-farming");
+      endpoint += '?llmFrameworkType=openai-vanilla&vectordbType=postgres-with-pgvector&token=' + accessToken;
+      if (tyndaleOpenElement.checked == true) {
+        endpoint += '&labels=' + tyndaleOpenElement.value;
+        $('#messages').append('<div>---<b>Domain:Tyndale-Open:' + tyndaleOpenElement.checked + '</b>---</div');
+      }
+      if (faithAndFarmingElement.checked == true) {
+        endpoint += '&labels=' + faithAndFarmingElement.value;
+        $('#messages').append('<div>---<b>Domain:Faith-and-Farming:' + faithAndFarmingElement.checked + '</b>---</div');
+      }
+      ws.close();
+      console.log("endpoint: " + endpoint)
+
+      ws = setupWebsocket(endpoint);          }
     </script>
     <script>
-        let mediaRecorder;
-        let chunks = [];
-        let isRecording = false;
+      document.getElementById('logout').addEventListener('click', async (event) => {
+        console.log("Logging out");
+        event.preventDefault();
+        try {
+          const response = await fetch('/logout', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+            })
+          });
+          sessionStorage.removeItem('accessToken');
+          const data = await response.json();
+          next_url = data.next_url;
+          window.location.href = next_url;
+        } catch (error) {
+          console.error('Error:', error);
+        }
+      });
+    </script>
+    <script>
+      let mediaRecorder;
+      let chunks = [];
+      let isRecording = false;
 
-        recordButton.addEventListener("click", function () {
+      recordButton.addEventListener("click", function () {
         // Check if the browser supports the required APIs
         if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
 
           navigator.mediaDevices.getUserMedia({ audio: true })
             .then(function (stream) {
-                const recordButton = document.getElementById("recordButton");
-                if (ws.readyState === WebSocket.OPEN || ws.readyState === WebSocket.CONNECTING) {
-                    if (isRecording) {
-                    // If already recording, stop the recording
-                    mediaRecorder.stop();
-                    recordButton.innerHTML = '<i class="fas fa-circle fa-sm"></i> Record';
-                  } else {
-                    // If not recording, start recording
-                    startRecording(stream);
-                    recordButton.innerHTML = '<i class="fas fa-stop-circle fa-sm"></i> Stop';
-                  }
-                  // Toggle the recording state
-                  isRecording = !isRecording;
+              const recordButton = document.getElementById("recordButton");
+              if (ws.readyState === WebSocket.OPEN || ws.readyState === WebSocket.CONNECTING) {
+                if (isRecording) {
+                  // If already recording, stop the recording
+                  mediaRecorder.stop();
+                  recordButton.innerHTML = '<i class="fas fa-circle fa-sm"></i> Record';
                 } else {
-                    $('#errorDiv').text('Please sign in first, then ask your question.');
-                    console.log('WebSocket is not open');
+                  // If not recording, start recording
+                  startRecording(stream);
+                  recordButton.innerHTML = '<i class="fas fa-stop-circle fa-sm"></i> Stop';
                 }
- 
-                })
-                .catch(function (error) {
-                  console.error("Error accessing microphone:", error);
-                });
+                // Toggle the recording state
+                isRecording = !isRecording;
               } else {
-                console.error("getUserMedia not supported on your browser");
+                $('#errorDiv').text('Please sign in first, then ask your question.');
+                console.log('WebSocket is not open');
               }
+
+            })
+            .catch(function (error) {
+              console.error("Error accessing microphone:", error);
             });
-
-        function startRecording(stream) {
-            mediaRecorder = new MediaRecorder(stream);
-            chunks = [];
-
-            mediaRecorder.addEventListener("dataavailable", function (event) {
-
-                chunks.push(event.data);
-            });
-
-            mediaRecorder.addEventListener("stop", function () {
-
-                const audioBlob = new Blob(chunks, { type: "audio/wav" });
-                const audioFile = new File([audioBlob], "recorded_audio.wav");
-                sendToSocket(audioFile);
-
-            });
-
-            mediaRecorder.start();
+        } else {
+          console.error("getUserMedia not supported on your browser");
         }
+      });
 
-        function sendToSocket(audioFile) {
+      function startRecording(stream) {
+        mediaRecorder = new MediaRecorder(stream);
+        chunks = [];
 
-            const reader = new FileReader();
-            reader.onload = function (event) {
-                const arrayBuffer = event.target.result;
-                ws.send(arrayBuffer);
-            };
-            reader.readAsArrayBuffer(audioFile);
-        }
+        mediaRecorder.addEventListener("dataavailable", function (event) {
+
+          chunks.push(event.data);
+        });
+
+        mediaRecorder.addEventListener("stop", function () {
+
+          const audioBlob = new Blob(chunks, { type: "audio/wav" });
+          const audioFile = new File([audioBlob], "recorded_audio.wav");
+          sendToSocket(audioFile);
+
+        });
+
+        mediaRecorder.start();
+      }
+
+      function sendToSocket(audioFile) {
+
+        const reader = new FileReader();
+        reader.onload = function (event) {
+          const arrayBuffer = event.target.result;
+          ws.send(arrayBuffer);
+        };
+        reader.readAsArrayBuffer(audioFile);
+      }
     </script>
     <br><br>
     <footer class="bg-gray-300 text-center p-3 mt-4">
@@ -333,5 +297,6 @@
         </ul>
       </div>
     </footer>
-</body>
+  </body>
+
 </html>

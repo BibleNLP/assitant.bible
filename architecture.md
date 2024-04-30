@@ -1,4 +1,4 @@
-# Assistant.Bible
+# faithbridge.multilingualai
 
 ## Technology Stack
 * Python 3.10
@@ -12,7 +12,7 @@
 
 ## Code Base Folder Structure
 
-- assistant.bible
+- faithbridge.multilingualai
     - app (All files that need to be in docker context)
         - main.py (FastAPI app, logging settings, CORS etc)
         - schema.py (Pydantic IO object definitions)
