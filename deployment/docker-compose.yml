@@ -16,8 +16,8 @@ services:
      - POSTGRES_DB_USER=${POSTGRES_DB_USER:-admin}
      - POSTGRES_DB_PASSWORD=${POSTGRES_DB_PASSWORD:-secret}
      - POSTGRES_DB_NAME=${POSTGRES_DB_NAME:-adotbcollection}
-     - POSTGRES_DB_HOST=postgresvectordb
-     - POSTGRES_DB_PORT=5432
+     - POSTGRES_DB_HOST=${POSTGRES_DB_HOST:-postgresvectordb}
+     - POSTGRES_DB_PORT=${POSTGRES_DB_PORT:-5432}
      - POSTGRES_DB_QUERY_LIMIT=${POSTGRES_DB_QUERY_LIMIT:-5}
      - SUPABASE_URL=${SUPABASE_URL}
      - SUPABASE_KEY=${SUPABASE_KEY}
@@ -95,7 +95,7 @@ services:
      - ./certbot/www/:/var/www/certbot/:rw
      - ./certbot/conf/:/etc/letsencrypt/:rw
     entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
-    command: certonly --webroot --webroot-path=/var/www/certbot --email alejandro_quintero@sil.org  --agree-tos --no-eff-email --non-interactive --deploy-hook "nginx -s reload" -d faithbridge.multilingualai.com -d www.faithbridge.multilingualai.com
+    # command: certonly --webroot --webroot-path=/var/www/certbot --email alejandro_quintero@sil.org  --agree-tos --no-eff-email --non-interactive --deploy-hook "nginx -s reload" -d faithbridge.multilingualai.com -d www.faithbridge.multilingualai.com
 
     networks:
      - chatbot-network
