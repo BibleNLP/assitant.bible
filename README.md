@@ -3,8 +3,6 @@ The codebase for assistant.bible: A Bible assistant.
 
 An intelligent search engine for domain specific data, that not only provides relevant links to resources but also synthesizes and summarizes results to provide a succinct and relevant answer through an interactive interface. It connects to LLMs and other AI models that are trained on the ground truth texts uploaded by the organization. This enables the software to provide highly accurate and relevant responses to user queries, based on the specific context of the organization's data. With the natural language chat interface, users can easily interact with the data and gain insights that would be difficult or time-consuming to obtain otherwise.
 
-[Development Demo URL](#)
-
 ## Technologies
 * Python 3.10
 * FastAPI
@@ -110,7 +108,7 @@ pylint --rcfile=.pylintrc app/*.py app/tests/*.py
 
 ### Contributing
 
-In this repository, there are two long-lived branches: develop and main. There are automated actions that trigger deployment upon a "push" event for the following respective environments: https://dev.assistant.bible/ (hosted in the SIL DO account) and https://assistant.bible/ (hosted in the BCS DO account ).
+In this repository, there are two long-lived branches: develop and main. 
 
 To contribute, please follow these steps:
 
